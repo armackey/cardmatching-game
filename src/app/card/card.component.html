@@ -1,0 +1,6 @@
+<div class="scene">
+  <div #flippedElem [class]="getCardClasses()" (click)='selected()'>
+    <img class='back' src='{{ CARD_BACK_IMAGE }}' alt="{{ card.code }}">
+    <img class='front' src='{{ card.image }}' alt="{{ card.code }}">
+  </div>
+</div>

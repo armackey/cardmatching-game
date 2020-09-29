@@ -1,0 +1,84 @@
+.scene {
+	width: 80px;
+  height: 120px;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.card {
+  cursor: pointer;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transform-style: preserve-3d;
+  &.is-flipped-show .back {
+    animation: showFront 1s forwards;
+  }
+  &.is-flipped-show .front {
+    animation: showBack 1s forwards;
+  }
+  &.is-flipped-hide .back {
+    animation: showBack 1s forwards;
+  }
+  &.is-flipped-hide .front {
+    animation: showFront 1s forwards;
+  }
+}
+
+.card {
+  &.matched-remove {
+    animation: remove 1s forwards;
+    .front {
+      animation: showBack 0.8s infinite;
+    }
+    .back {
+      animation: showFront 0.8s linear infinite;
+      animation: showFront 0.8s linear infinite;
+      animation: showFront 0.8s linear infinite;
+      animation: showFront 0.8s linear infinite;
+      animation: showFront 0.8s linear infinite;
+    }
+  }
+}
+
+@keyframes remove {
+  from   {
+    opacity: 1;
+    position: absolute;
+    top: 0;
+  }
+  to {
+    position: absolute;
+    top: -15px;
+    opacity: 0;
+  }
+}
+
+@keyframes showFront {
+  0%   { transform: rotateY(0deg); }
+  100% { transform: rotateY(-180deg); }
+}
+
+@keyframes showBack {
+  0%   { transform: rotateY(180deg); }
+  100% { transform: rotateY(0deg); }
+}
+
+.front {
+  z-index: 2;
+  transform: rotateY(180deg);
+}
+
+.front, .back {
+  height: 100%;
+  width: 100%;
+  display: block;
+  position: absolute;
+  border-radius: 10px;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  transition: -webkit-transform ease 500ms;
+  transition: transform ease 500ms;
+}
+

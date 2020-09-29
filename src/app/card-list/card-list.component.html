@@ -1,0 +1,5 @@
+<div class="container">
+  <ng-container *ngFor="let card of cards$ | async; trackBy: trackCard">
+    <app-card [card]='card'></app-card>
+  </ng-container>
+</div>
