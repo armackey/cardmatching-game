@@ -4,9 +4,10 @@
 
 ## What
 #### a simple card matching game 
+##### using ngRx and RxJs
 
 ## Why
-#### wanted to share a snippet of code from a larger project
+#### i wanted to share a snippet of code from a larger project
 
 ## How
 ##### `git clone [path]`
